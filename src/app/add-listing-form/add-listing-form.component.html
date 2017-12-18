@@ -1,0 +1,82 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Add a Listing</h4>
+  </div>
+  <div class="panel-body">
+<form #addCribItem = "ngForm" (submit)="onCribSubmit(addCribItem.value)" name="crib-form">
+   <div class="form-group col-sm-4">
+      <label for="address" class="">Address</label>
+      <input type="text"
+      class="form-control"
+      name="address"
+      ngModel
+      placeholder="address"
+      required>
+   </div>
+ <div class="form-group col-sm-4">
+  <label for="price" class="">Price</label>
+  <input type="text"
+  class="form-control"
+  name="price"
+  ngModel
+  placeholder="Price"
+  required>
+</div>
+<div class="form-group col-sm-4">
+  <label for="property-type" class="">Property Type</label>
+  <select
+  class="form-control"
+  name="type"
+  id="property-type"
+  ngModel
+  required>
+  <option selected value>Select Your House Type</option>
+  <option *ngFor="let type of propertyTypes" 
+  [value]="type">
+  {{ type }}
+</option>
+</select>
+</div>
+<div class="form-group col-sm-6">
+  <label for="description" class="">Description</label>
+  <textarea type="text"
+  class="form-control"
+  name="description"
+  ngModel
+  placeholder="Description"
+  required></textarea> 
+</div>
+<div class="form-group col-sm-2">
+  <label for="beds" class="">Beds</label>
+  <input type="text"
+  class="form-control"
+  name="bedrooms"
+  ngModel
+  placeholder="Beds"
+  required>
+</div>
+<div class="form-group col-sm-2">
+  <label for="baths" class="">Baths</label>
+  <input type="text"
+  class="form-control"
+  name="bathrooms"
+  ngModel
+  placeholder="Baths"
+  required>
+</div>
+<div class="form-group col-sm-2">
+  <label for="sqft" class="">SqFt</label>
+  <input type="text"
+  class="form-control"
+  name="area"
+  ngModel
+  placeholder="SqFt"
+  required>
+</div>
+ <div class="form-group col-sm-12">
+   <button class="btn btn-primary listing-button"
+   type="submit">Add</button>
+ </div>
+</form>
+</div>
+</div>

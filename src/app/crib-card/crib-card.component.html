@@ -1,0 +1,48 @@
+<div class="thumbnail">
+    <img src="{{data.image}}" alt="{{data.type}}" width="100%" max-height="30%">
+      
+    <div class="caption">
+      <div *ngIf = "!data.showDetails">
+        <h4>
+          <span class="label label-primary">
+            {{data.type}}
+          </span>
+        </h4>
+        <h3>
+          <i class="glyphicon glyphicon-tag"></i>
+            {{data.price | currency: 'USD' : true}}
+        </h3>
+        <h4>
+            <i class="glyphicon glyphicon-home"></i>
+           {{data.address}}
+          </h4>
+          <hr>
+        <button 
+        class="btn btn-sm btn-success"
+        *ngIf="!data.showDetails"
+        (click) = "data.showDetails = !data.showDetails">
+         Details </button>  
+      </div>
+    <div *ngIf="data.showDetails">
+      <div class="details">
+        <h4>
+       <span class="label label-primary">
+         Beds: {{data.bedrooms}}
+         </span>
+         <span class="label label-primary">
+            Baths: {{data.bathrooms}}
+          </span>
+          <span class="label label-primary">
+            Sqft: {{data.area}}
+           </span>
+        </h4> 
+        <p>{{data.description}}</p>  
+        <hr>
+        <button class="btn btn-sm btn-danger"
+        (click)="data.showDetails = !data.showDetails">Close</button>
+      </div>  
+    </div>      
+
+    </div>
+
+  </div>
